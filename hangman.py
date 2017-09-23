@@ -12,11 +12,18 @@ def loadWord():
    return secretWord
 
 def guessLetter(secretWord):
+  global guesses
   letter = str(input("Enter a letter: "))
-  if letter in secretWord:
-    print "True"
-  else:
-    print("False")
+  for i in secretWord:
+    if letter == i:
+      print(i)
+    else:
+      print("_")
+    # print("false")
+    # guesses = guesses - 1
+    # print(guesses)
+  guessLetter(secretWord)
+
 
 
 loadWord()

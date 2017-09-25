@@ -1,7 +1,8 @@
 import random
 
 guesses = 6
-
+solution = []
+lettersGuessed = []
 def loadWord():
    f = open('hangman_words.txt', 'r')
    wordsList = f.readlines()
@@ -11,23 +12,41 @@ def loadWord():
    secretWord = list(random.choice(wordsList))
    return secretWord
 
-def guessLetter(secretWord):
-  global guesses
-  letter = str(input("Enter a letter: "))
-  for i in secretWord:
-    if letter == i:
-      print(i)
-    else:
-      print("_")
-    # print("false")
-    # guesses = guesses - 1
-    # print(guesses)
-  guessLetter(secretWord)
+def getGuessedWord(secretWord, printedWord):
+      for i in secretWord:
+        printedWord.append("_")
+      print(printedWord)
+
+# def guessLetter(secretWord, printedWord):
+#       global guesses
+#       letter = raw_input("Enter a letter: ")
+#       if letter in secretWord:
+#         printedWord.append(letter)
+#       else:
+#         print("false")
+#       print(printedWord)
+#       getGuessedWord(secretWord, printedWord)
+#       guessLetter(secretWord, printedWord)
+
+  # print("false")
+  # guesses = guesses - 1
+  #     print(guesses)
+
+  # if letter in secretWord:
+  #   global solution
+  #   solution.append(letter)
+  #   if letter in solution:
+  #   print(True)
+  #   print(solution)
+  # else:
+  #   print(False)
 
 
 
+
+printedWord = []
 loadWord()
-guessLetter(loadWord())
+guessLetter(loadWord(), printedWord)
 
 
 
@@ -46,15 +65,15 @@ guessLetter(loadWord())
 
 
 
-# def getGuessedWord(secretWord, lettersGuessed):
-#     '''
-#     secretWord: string, the random word the user is trying to guess.  This is selected on line 9.
-#     lettersGuessed: list of letters that have been guessed so far.
-#     returns: string, of letters and underscores.  For letters in the word that the user has
-#     guessed correctly, the string should contain the letter at the correct position.  For letters
-#     in the word that the user has not yet guessed, shown an _ (underscore) instead.
-#     '''
-#     # FILL IN YOUR CODE HERE...
+
+'''
+secretWord: string, the random word the user is trying to guess.  This is selected on line 9.
+lettersGuessed: list of letters that have been guessed so far.
+returns: string, of letters and underscores.  For letters in the word that the user has
+guessed correctly, the string should contain the letter at the correct position.  For letters
+in the word that the user has not yet guessed, shown an _ (underscore) instead.
+'''
+# FILL IN YOUR CODE HERE...
 
 
 

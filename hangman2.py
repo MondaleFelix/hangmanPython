@@ -16,27 +16,30 @@ def guessLetter():
     print(secretWord)
     print(printedWord)
     letter = raw_input("Enter a letter: ")
-    # for i in secretWord:
-    #   if letter == i:
-       # printedWord.pop(secretWord.index(letter))
-       # printedWord.insert(secretWord.index(letter), letter)
-
-    # goes through every single character in secretWord
     for i in range(len(secretWord)):
-      # if the character input is in secretWord,
-      # the same index in printedWord is replaced by input
         if letter == secretWord[i]:
           printedWord[i] = letter
+    isWordGuessed(secretWord, printedWord)
     guessLetter()
 
 
 
 
 
+    # for i in secretWord:
+    #   if letter == i:
+       # printedWord.pop(secretWord.index(letter))
+       # printedWord.insert(secretWord.index(letter), letter)
+
+    # goes through every single character in secretWord
 
 
+def isWordGuessed(secretWord, printedWord):
+    if secretWord == printedWord:
+      print("Winner")
+    elif guesses == 0:
+      print("print fucking loser")
 
-def isWordGuessed(secretWord, lettersGuessed):
     '''
     secretWord: string, the random word the user is trying to guess.  This is selected on line 9.
     lettersGuessed: list of letters that have been guessed so far.

@@ -1,5 +1,6 @@
 import random
 
+guesses = 6
 printedWord = []
 
 def loadWord():
@@ -12,13 +13,21 @@ def loadWord():
    return secretWord
 
 def guessLetter():
-  print(printedWord)
-  letter = raw_input("Enter a letter: ")
-  if letter in secretWord:
-    print(secretWord.index(letter))
-  else:
-    print(False)
-  guessLetter()
+    print(secretWord)
+    print(printedWord)
+    letter = raw_input("Enter a letter: ")
+    # for i in secretWord:
+    #   if letter == i:
+       # printedWord.pop(secretWord.index(letter))
+       # printedWord.insert(secretWord.index(letter), letter)
+
+    # goes through every single character in secretWord
+    for i in range(len(secretWord)):
+      # if the character input is in secretWord,
+      # the same index in printedWord is replaced by input
+        if letter == secretWord[i]:
+          printedWord[i] = letter
+    guessLetter()
 
 
 

@@ -3,6 +3,7 @@ import random
 guesses = 6
 printedWord = []
 
+# This function returns a random word
 def loadWord():
    f = open('hangman_words.txt', 'r')
    wordsList = f.readlines()
@@ -12,6 +13,7 @@ def loadWord():
    secretWord = list(random.choice(wordsList))
    return secretWord
 
+# This function inserts the users input and returns results
 def guessLetter():
     global guesses
     while guesses > 0 and secretWord != printedWord:
@@ -27,6 +29,7 @@ def guessLetter():
       isWordGuessed(secretWord, printedWord)
       guessLetter()
 
+# This function validates winning or losing
 def isWordGuessed(secretWord, printedWord):
     if secretWord == printedWord:
       print(printedWord)
@@ -35,6 +38,7 @@ def isWordGuessed(secretWord, printedWord):
       print("Fucking loser")
 
 
+# This function prints the underlines for the user
 def getGuessedWord(secretWord):
     for i in secretWord:
       printedWord.append("_")
@@ -43,28 +47,11 @@ def getGuessedWord(secretWord):
 
 
 def getAvailableLetters(lettersGuessed):
-
-
+    pass
 
 def hangman(secretWord):
-    '''
-    secretWord: string, the secret word to guess.
+    pass
 
-    Starts up a game of Hangman in the command line.
-
-    * At the start of the game, let the user know how many
-      letters the secretWord contains.
-
-    * Ask the user to guess one letter per round.
-
-    * The user should receive feedback immediately after each guess
-      about whether their guess appears in the computer's word.
-
-    * After each round, you should also display to the user the
-      partially guessed word so far, as well as letters that the
-      user has not yet guessed.
-    '''
-    # FILL IN YOUR CODE HERE...
 
 secretWord = loadWord()
 getGuessedWord(secretWord)
